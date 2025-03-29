@@ -73,16 +73,34 @@ nav ul li a:hover {
 }
 
 .slides img {
+    position: absolute;
     width: 100%;
     height: 845px;
     object-fit: cover;
-    display: none;
+    opacity: 0;
     transition: opacity 1s ease-in-out;
 }
 
 .slides img:first-child {
-    display: block;
+    opacity: 1;
 }
+
+#prev, #next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+}
+
+#prev { left: 10px; }
+#next { right: 10px; }
+
 
 .dots {
     position: absolute;
