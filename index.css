@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styles */ 
 * {
     margin: 0;
     padding: 0;
@@ -68,15 +68,15 @@ nav ul li a:hover {
 .slider {
     position: relative;
     width: 100%;
-    height: 845px;
+    height: 100vh; /* Set height to viewport height */
     overflow: hidden;
 }
 
 .slides img {
     position: absolute;
     width: 100%;
-    height: 845px;
-    object-fit: cover;
+    height: 100%; /* Full height to cover the screen */
+    object-fit: cover; /* Ensure image covers area without distortion */
     opacity: 0;
     transition: opacity 1s ease-in-out;
 }
@@ -100,7 +100,6 @@ nav ul li a:hover {
 
 #prev { left: 10px; }
 #next { right: 10px; }
-
 
 .dots {
     position: absolute;
@@ -129,7 +128,7 @@ nav ul li a:hover {
 /* Products Section */
 .products {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Auto columns with a minimum width of 320px */
     gap: 20px;
     padding: 40px;
     background: #444;
@@ -151,14 +150,15 @@ nav ul li a:hover {
 }
 
 .product-card img {
-    width: 100%;
-    height: 200px;
+    width: 100%; /* Full width of the container */
+    height: auto; /* Adjust height according to image aspect ratio */
     object-fit: cover;
     border-radius: 10px;
 }
 
 .product-card h3 {
     margin: 10px 0;
+    font-size: 18px; /* Slightly smaller font size */
 }
 
 .product-card p {
@@ -189,4 +189,47 @@ footer {
     background: #222;
     color: white;
     font-size: 14px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For small devices like mobile (max-width: 600px) */
+@media (max-width: 600px) {
+    .products {
+        padding: 20px; /* Adjust padding */
+    }
+
+    .product-card img {
+        height: 250px; /* Adjust image height */
+    }
+
+    .product-card h3 {
+        font-size: 16px; /* Smaller font for mobile */
+    }
+
+    .product-card p {
+        font-size: 12px; /* Smaller font for mobile */
+    }
+
+    .slider {
+        height: 60vh; /* Adjust height for smaller screens */
+    }
+}
+
+/* For larger devices like tablets (max-width: 900px) */
+@media (max-width: 900px) {
+    .slider {
+        height: 70vh; /* Adjust height for tablet screens */
+    }
+
+    .product-card img {
+        height: 300px; /* Adjust image height */
+    }
+}
+
+/* For larger screens like desktops */
+@media (min-width: 1200px) {
+    .slider {
+        height: 85vh; /* Slightly larger height for desktops */
+    }
 }
