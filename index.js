@@ -3,19 +3,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const dots = document.querySelectorAll(".dot");
     const prevButton = document.getElementById("prev");
     const nextButton = document.getElementById("next");
-    
+
     let index = 0;
     const totalSlides = slides.length;
     let slideInterval;
 
     function showSlide(i) {
-        slides.forEach((img, idx) => {
-            img.style.opacity = idx === i ? "1" : "0";
-            img.style.display = "block";
-        });
-        dots.forEach((dot, idx) => {
-            dot.classList.toggle("active", idx === i);
-        });
+        slides.forEach(img => img.style.opacity = "0");
+        slides[i].style.opacity = "1";
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        dots[i].classList.add("active");
+
         index = i;
     }
 
@@ -37,6 +36,20 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(slideInterval);
     }
 
+    // Arrow button click events
+    prevButton.addEventListener("click", function () {
+        stopSlideShow();
+        prevSlide();
+        startSlideShow();
+    });
+
+    nextButton.addEventListener("click", function () {
+        stopSlideShow();
+        nextSlide();
+        startSlideShow();
+    });
+
+    // Dots click event
     dots.forEach((dot, i) => {
         dot.addEventListener("click", () => {
             stopSlideShow();
@@ -44,22 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
             startSlideShow();
         });
     });
-
-    if (prevButton && nextButton) {
-        prevButton.style.background = "transparent";
-        nextButton.style.background = "transparent";
-        prevButton.addEventListener("click", () => {
-            stopSlideShow();
-            prevSlide();
-            startSlideShow();
-        });
-    
-        nextButton.addEventListener("click", () => {
-            stopSlideShow();
-            nextSlide();
-            startSlideShow();
-        });
-    }
 
     showSlide(index);
     startSlideShow();
