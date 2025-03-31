@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Light gray background for the entire page */
+    padding: 20px; /* Padding around the body */
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px; /* Adjust as needed */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px; /* Add padding for better click area */
+    border-radius: 5px; /* Add border radius */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for color and background */
+}
+
+nav a:hover {
+    color: #e0e0e0; /* Change text color to a lighter gray on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+.auth-buttons a {
+    margin-left: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 10px; /* Add padding for better click area */
+    border-radius: 5px; /* Add border radius */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition for color and background */
+}
+
+.auth-buttons a:hover {
+    color: #e0e0e0; /* Change text color to a lighter gray on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Light background on hover */
+}
+
+#slider-container {
+    background-color: #d3d3d3; /* Light gray background */
+    padding: 20px 0; /* Optional: Add some padding for spacing */
+}
+
+#slider {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slides img {
+    width: 100%; /* Ensure the image takes the full width of the slider */
+    height: auto; /* Allow height to adjust automatically */
+    max-height: 80vh; /* Set a maximum height relative to the viewport height */
+    object-fit: cover; /* Ensure images cover the area without distortion */
+    display: none; /* Hide all images initially */
+}
+
+.slides img.active {
+    display: block; /* Show the active image */
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-controls button {
+    background-color: transparent; /* Fully transparent background */
+    color: white; /* Change text color to white for arrows */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Optional: Add rounded corners */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    font-size: 2vw; /* Responsive font size based on viewport width */
+}
+
+.slider-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly visible on hover */
+}
+
+.dots {
+    position: absolute; /* Position the dots absolutely */
+    bottom: 20px; /* Distance from the bottom of the slider */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust to center the dots */
+    text-align: center; /* Center the dots */
+    z-index: 10; /* Ensure dots are above the images */
+}
+
+.dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb; /* Default background color */
+    border-radius: 50%; /* Make it circular */
+    margin: 0 5px;
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.dot.active {
+    background-color: #717171; /* Active dot color */
+}
+
+.dot:hover {
+    background-color: #ffffff; /* Change background color on hover */
+    transform: scale(1.2); /* Slightly enlarge the dot on hover */
+}
+
+#products {
+    padding: 20px;
+    background-color: #3b3b3b;
+}
+
+.product-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 20px; /* Space between cards */
+}
+
+.product-card {
+    background-color: #3b3b3b; /* Original background color for the cards */
+    border: 1px solid #ffffff94; /* Optional: Add a border */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    box-shadow: 0 2px 5px #ffffff9c; /* Optional: Add a subtle shadow */
+    padding: 15px; /* Optional: Add padding inside the card */
+    text-align: center; /* Center text inside the card */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    background-color: #4a4a4a; /* Change background color on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+}
+.product-card img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.product-card h3 {
+    margin: 10px; /* Adjust margin for better spacing */
+    font-size: 1em; /* Adjust font size */
+    color: #ffffff94;
+}
+
+.product-card p {
+    margin: 10px; /* Adjust margin for better spacing */
+    color: #ffffff94;
+    font-size: 0.8em; /* Adjust font size */
+    flex-grow: 1; /* Allow the paragraph to grow and take available space */
+}
+
+.buy {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.buy:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.product-card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-cards {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-cards {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+}
